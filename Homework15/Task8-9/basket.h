@@ -1,19 +1,25 @@
 #pragma once
-#include <string>
+#include <iosfwd>
+using std::ostream;
 
-using std::string;
+enum Fruit {
+    Watermelon,
+    Melon,
+    Empty
+};
 
 class Basket {
 private:
-    string fruitType;
-public:
-
-    explicit Basket(string fruitType);
-
-
-    string getContent() { return fruitType; }
-
+    Fruit typeFruit_ = Empty;
+    public:
+    Basket() = default;
+    bool set(Fruit typeFruit);
+    Fruit getFruit() const noexcept { return typeFruit_; }
+    explicit Basket(Fruit typeFruit);
+    bool putFruit(Fruit typeFruit);
+    bool takeFruit(Fruit typeFruit);
 };
+std::ostream &operator<<(std::ostream &f, const Basket &p);
+bool input(Basket &b);
 
-
-void unloadBaskets(Basket *baskets, int n);
+void unload(Basket b[], int n);
