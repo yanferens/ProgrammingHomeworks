@@ -56,7 +56,7 @@ void inputExhibitions(ExhibitionPrice exhibitions[], int& n) {
     }
 }
 
-// Конструктор
+
 Ticket::Ticket(ExhibitionPrice const exhibitions[], int n) {
     this->count_ = n;
     this->activities_ = new ExhibitionPrice[n];
