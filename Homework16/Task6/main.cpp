@@ -9,7 +9,7 @@ int main() {
     std::srand(static_cast<unsigned int>(std::time(nullptr)));
 
     int n = 0;
-    ExhibitionPrice exhibitions[10];
+    ExhibitionPrice exhibitions[100];
 
     try {
         inputExhibitions(exhibitions, n);
