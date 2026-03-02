@@ -1,4 +1,4 @@
-project(Task17_7)
+project(Task18_45)
 
 
 set(CMAKE_CXX_STANDARD 20)
