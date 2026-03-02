@@ -15,4 +15,6 @@ add_subdirectory(Homework17/Task1)
 add_subdirectory(Homework17/Task7)
 add_subdirectory(Homework18/Task123)
 add_subdirectory(Homework18/Task45)
+add_subdirectory(Homework18/Task12-13)
 add_subdirectory(Homework18/Task89)
+
