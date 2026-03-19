@@ -39,7 +39,7 @@ DynArray::DynArray(const DynArray& other) : _size(other._size) {
     }
 }
 DynArray& DynArray::operator=(const DynArray& other) {
-    if (this != &other) { // Protect against self-assignment (arr = arr)
+    if (this != &other) {
         delete[] _data;
         _size = other._size;
         if (_size > 0) {
