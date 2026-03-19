@@ -19,4 +19,4 @@ add_subdirectory(Homework18/Task12-13)
 add_subdirectory(Homework18/Task89)
 add_subdirectory(Homework19/Task1_ModulePhone)
 add_subdirectory(Homework19/Task2_Factory)
-
+add_subdirectory(Homework19/Task3_FlatMatrix)
