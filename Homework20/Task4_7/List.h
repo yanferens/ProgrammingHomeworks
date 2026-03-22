@@ -16,6 +16,8 @@ public:
     List(const List &) = delete;
     List& operator=(const List &) = delete;
     List(List &&) = delete;
+    List& operator=(List&&) = delete;
+    void deleteAll3();
     List& operator=(List &) = delete;
     void push_before(int data);
     void push_back(int data);

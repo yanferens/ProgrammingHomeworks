@@ -3,6 +3,39 @@
 #include <stdexcept>
 
 
+
+
+void List::deleteAll3() {
+
+    while (_head != nullptr && _head->data == 3) {
+        Node* temp = _head;
+        _head = _head->next;
+        delete temp;
+        _size--;
+    }
+
+
+    if (_head == nullptr) {
+        return;
+    }
+
+    Node* current = _head;
+
+
+    while (current->next != nullptr) {
+        if (current->next->data == 3) {
+
+            Node* temp = current->next;
+            current->next = temp->next;
+            delete temp;
+            _size--;
+
+        } else {
+
+            current = current->next;
+        }
+    }
+}
 void List::_push_before(Node* before, int data) {
 
     if (!before) {

@@ -7,7 +7,7 @@ using namespace std;
 int main() {
     List myList;
     myList.push_back(10);
-    myList.push_back(20);
+    myList.push_back(3);
     myList.push_back(30);
     myList.printList();
     cout << "Current list size: " << myList.getSize() << endl;
@@ -16,8 +16,8 @@ int main() {
     myList.push_before(1);
     myList.printList();
     cout << "Current list size: " << myList.getSize() << endl;
-
-
+    myList.deleteAll3();
+    myList.printList();
 
     myList.clear();
     cout << "Size after clearing: " << myList.getSize() << endl;
