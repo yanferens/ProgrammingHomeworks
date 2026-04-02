@@ -1,6 +1,7 @@
 #include "ReplaceList.h"
 #include <iostream>
 #include <stdexcept>
+#include <algorithm>
 
 Node* findLastEl(Node* head) {
     if (head == nullptr) {
@@ -29,10 +30,14 @@ void printList(Node* head) {
         return;
     }
     Node* temp = head;
-    while (temp) {
+    while (temp && temp->next != head) {
+
         std::cout << temp->data;
         if (temp->next) std::cout << " <-> ";
         temp = temp->next;
+    }
+    if (temp) {
+        std::cout << temp->data;
     }
     std::cout << std::endl;
 }
@@ -70,38 +75,67 @@ Node* replaceElements1(Node* head, Node* node1) {
 }
 
 
-Node* replaceElements2(Node* head, Node* node1, Node* node2) {
-    if (head == nullptr || node1 == nullptr || node2 == nullptr || node1 == node2) {
-        return head;
+
+Node* swap(Node* node1, Node* node2, Node* _head) {
+    if (!(node1) || !(node2) || !(_head) || node1 == node2) {
+        return _head;
     }
 
 
-    if (node1->next == node2) return replaceElements1(head, node1);
-    if (node2->next == node1) return replaceElements1(head, node2);
+    if (node1 == _head) {
+        _head = node2;
+    }
+    else if (node2 == _head) {
+        _head = node1;
+    }
+
+    if (node2->next == node1) {
+        std::swap(node1, node2);
+    }
+
+    if (node1 -> next == node2) {
+        auto node1Prev = node1->prev;
+        auto node2Next = node2->next;
+
+        node2->next = node1;
+        node2->prev = node1Prev;
+        node1->prev = node2;
+        node1->next = node2Next;
+        if (node1Prev) {
+            node1Prev->next = node2;
+        }
+        if (node2Next) {
+            node2Next->prev = node1;
+        }
+        return _head;
+    }
+
+    auto node1Next = node1->next;
+    auto node2Next = node2->next;
+    auto node2Prev = node2->prev;
+    auto node1Prev = node1->prev;
+
+    node1->next = node2Next;
+    node2->next = node1Next;
+    node1->prev = node2Prev;
+    node2->prev = node1Prev;
+
+    if (node2Next) {
+        node2Next->prev = node1;
+    }
+    if (node1Prev) {
+        node1Prev->next = node2;
+    }
+    if (node1Next) {
+        node1Next ->prev = node2;
+    }
+    if (node2Prev) {
+        node2Prev->next = node1;
+    }
+
+    return _head;
 
 
-    Node* prev1 = node1->prev;
-    Node* next1 = node1->next;
-    Node* prev2 = node2->prev;
-    Node* next2 = node2->next;
-
-
-    node1->prev = prev2;
-    node1->next = next2;
-    if (prev2 != nullptr) prev2->next = node1;
-    else head = node1;
-
-    if (next2 != nullptr) next2->prev = node1;
-
-
-    node2->prev = prev1;
-    node2->next = next1;
-    if (prev1 != nullptr) prev1->next = node2;
-    else head = node2;
-
-    if (next1 != nullptr) next1->prev = node2;
-
-    return head;
 }
 
 

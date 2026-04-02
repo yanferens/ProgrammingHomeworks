@@ -1,7 +1,51 @@
 #include "Tree.h"
 #include <iostream>
 #include <stdexcept>
-#include <stdexcept>
+
+
+Tree::Node* Tree::findFather(Node* root, Node* node) {
+    
+    if (!node || !root || node == root) {
+        return nullptr;
+    }
+
+
+    if (root->right == node || root->left == node) {
+        return root;
+    }
+
+
+    if (root->right) {
+        Node* rightResult = findFather(root->right, node);
+        if (rightResult != nullptr) {
+            return rightResult;
+        }
+    }
+
+
+    if (root->left) {
+        return findFather(root->left, node);
+    }
+
+
+    return nullptr;
+}
+
+Tree::Node* Tree::deleteRightNode(Node*& root) {
+    if (!(root)) {
+        return nullptr;
+    }
+    if (root->right == nullptr && root->left == nullptr) {
+        delete root;
+        root = nullptr;
+        return root;
+    }
+    if (root->right) deleteRightNode(root->right);
+    else if (root->left) deleteRightNode(root->left);
+
+    return root;
+
+}
 
 Tree::Tree() = default;
 

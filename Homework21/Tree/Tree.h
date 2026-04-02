@@ -19,6 +19,8 @@ private:
     int _next_to(Node* root, int x) const;
     int _height(Node* root) const;
     bool _isEqual(Node* a, Node* b) const;
+    Node* deleteRightNode(Node*& root);
+    Node* findFather(Node* root, Node* node);
 public:
     Tree();
     explicit Tree(int elem, Tree &&left = Tree(), Tree &&right = Tree());
@@ -41,6 +43,7 @@ public:
     int findBinMin() const;
     int next_to(int x) const;
     void clear() noexcept;
+
     bool operator==(const Tree& other) const;
     ~Tree();
 };

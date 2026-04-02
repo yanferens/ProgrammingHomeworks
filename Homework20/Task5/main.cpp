@@ -28,27 +28,50 @@ int main() {
     printList(head);
 
 
-    Node* node20 = findNode(head, 20);
-
-    head = replaceElements1(head, node20); 
-    printList(head);
 
 
     Node* node10 = findNode(head, 10);
+    Node* node20 = findNode(head, 20);
+    Node* node30 = findNode(head, 30);
     Node* node40 = findNode(head, 40);
-    head = replaceElements2(head, node10, node40);
-    printList(head);
-
-
-
-    Node* node40_curr = findNode(head, 40);
     Node* node50 = findNode(head, 50);
-    head = replaceElements2(head, node40_curr, node50);
-    printList(head);
 
+    node50->next = head;
+    node10->prev = node50;
+    head = swap(node10, node10, head);
+    printList(head);
+    head = swap(node10, node40, head);
+    printList(head);
+    head = swap(node10, node40, head);
+    printList(head);
+    head = swap(node10, node50, head);
+    printList(head);
+    head = swap(node10, node50, head);
+
+    head = swap(node10, node20, head);
+    printList(head);
+    head = swap(node10, node20, head);
+
+    head = swap(node20, node30, head);
+    printList(head);
+    head = swap(node20, node30, head);
+
+    head = swap(node20, node40, head);
+    printList(head);
+    head = swap(node20, node40, head);
+
+    head = swap(node20, node50, head);
+    printList(head);
+    head = swap(node20, node50, head);
+
+
+    head = swap(node40, node50, head);
+    printList(head);
+    head = swap(node40, node50, head);
 
 
     clear(head);
+
     head = nullptr;
 
 
