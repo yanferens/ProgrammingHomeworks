@@ -1,0 +1,15 @@
+List li;
+li.push_front(1);
+auto cur = li.begin();
+auto end = li.end();
+double num;
+while (cur != end)
+{
+    cout << "Input a number: ";
+    cin >> num;
+    if (num > 5)
+        li.push_back(num);
+    ++cur;
+}
+ 
+Код коректний у нас end повертає nullptr отже навіть якщо ми додамо елемент в кінець ми зможемо до нього дійти, пройде воно відповідно стільки елементів скільки задасть користувач при відповідній умові. 
