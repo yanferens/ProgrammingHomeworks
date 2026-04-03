@@ -33,6 +33,10 @@ int main() {
     cout << endl;
     list.makeNonPosNull();
     printList(list);
-
+    auto it = list.begin();
+    list.addAfterIterator(it, 19);
+    cout << endl;
+    cout << "Add 19 after iterator \n";
+    printList(list);
 
 }

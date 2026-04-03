@@ -39,6 +39,12 @@ void List::clear() {
     _tail = nullptr;
 }
 
+void List::addAfterIterator(iterator it, datatype data) {
+    if (!(it.curr)) {
+        return;
+    }
+    _add_after(it.curr, data);
+}
 
 
 List::iterator& List::iterator::operator++() {

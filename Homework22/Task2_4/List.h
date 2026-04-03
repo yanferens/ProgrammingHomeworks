@@ -22,6 +22,7 @@ public:
     List& operator=(List&&) = delete;
     int sumOfElementsSq() const;
     int findMin() const;
+
     std::string findElTwoPrev() const;
     void reduceElementsTwice();
     void makeNonPosNull();
@@ -64,5 +65,6 @@ public:
     const_iterator end() const noexcept { return {nullptr}; }
 
     const_iterator cbegin() const noexcept { return {_head}; }
-    const_iterator cend() const noexcept { return {nullptr}; }
+    const_iterator cend() const noexcept { return {nullptr}; }\
+    void addAfterIterator(iterator it, datatype data);
 };
