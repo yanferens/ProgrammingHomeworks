@@ -18,7 +18,7 @@ int main() {
     tree.add(-1);
     tree.add(-8);
 
-    for (auto it =  tree.begin(); it != tree.end() ; ++it) {
+    for (auto it =  tree.backward(); it != tree.end() ; ++it) {
         cout << *it << " ";
 
     }
